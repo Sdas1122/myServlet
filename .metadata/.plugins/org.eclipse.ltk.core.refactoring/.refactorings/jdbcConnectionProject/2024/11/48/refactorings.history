@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;BatchJdbcAplication.java&apos; to &apos;jdbcConnectionProject/src/com&apos;&#x0D;&#x0A;- Original project: &apos;jdbcConnectionProject&apos;&#x0D;&#x0A;- Destination element: &apos;jdbcConnectionProject/src/com&apos;&#x0D;&#x0A;- Original element: &apos;com.BatchJdbcAplication.java&apos;" description="Copy compilation unit" destination="/src&lt;com" element1="/src&lt;com{BatchJdbcAplication.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1732871917863" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,13 @@
+package com;
+
+public class HashMapExample {
+
+	public static void main(String[] args) {
+		Employee e1 =new Employee("1001","Sourav","Dumdum");
+		Employee e2 =new Employee("1002","Raja","Sinthi");
+		Employee e3 =new Employee("1003","Arnav","Newtown");
+		HashMap<String,Employee> empMap=new HashMap<String,Employee>();
+
+	}
+
+}

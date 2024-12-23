@@ -1,0 +1,89 @@
+package LoginDbms;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.util.Scanner;
+
+public interface Insert {
+	
+public void loginInformation();
+
+}
+
+class Insert implements Insert {
+	 String uname;
+	 String pword;
+	 String name;
+	 String mid;
+	 String gender;
+	 String bdate;
+	 
+	 public Insert() {
+		 this.uname=uname;
+		 this.pword=pword;
+		 this.name=name;
+		 this.mid=mid;
+		 this.gender=gender;
+		 this.bdate=bdate;
+	 }
+	 public void getdata() {
+		 Scanner sc = new Scanner(System.in);
+		 try {
+			 System.out.println("Enter the User Name:");
+			 uname=sc.nextLine();
+			 System.out.println("Enter the Password:");
+			 pword=sc.nextLine();
+			 System.out.println("Enter the Name:");
+			 name=sc.nextLine();
+			 System.out.println("Enter the Mail ID:");
+			 mid=sc.nextLine();
+			 System.out.println("Enter the Gender:");
+			 gender=sc.nextLine();
+			 System.out.println("Enter the Birth Date:");
+			 bdate=sc.nextLine();
+		} catch (Exception e) {
+			System.out.println("Exception :"+e.getMessage());
+			// TODO: handle exception
+		}
+	 }
+	 public void loginInformation() {
+		 
+		 Connection conn = null;
+	     CallableStatement cstmt = null;
+	     
+	     try {
+	    	 getdata();
+	    	 conn= LoginConnection.getDBConnection();
+	    	 String procName="{call loginInfoInsertData(?,?,?,?,?,?)}";
+			 cstmt=conn.prepareCall(procName);
+			 cstmt.setString(1, uname);
+			 cstmt.setString(2, pword);
+			 cstmt.setString(3, name);
+			 cstmt.setString(4, mid);
+			 cstmt.setString(5, gender);
+			 cstmt.setString(6, bdate);
+			    cstmt.execute();
+			    conn.commit();
+			    System.out.println("Data Inserted Successfully");
+			 
+		} catch (Exception e) {
+			System.out.println("Exception :"+e.getMessage());
+			// TODO: handle exception
+		}
+	     finally {
+	    	
+	    	 LoginConnection.closeConnection(null, cstmt, conn);
+		}
+	 }
+
+    public static void main(String[] args) {
+    	Insert lnt;
+   
+    	Insert insert = new Insert();
+    	lnt=insert;
+    	lnt.loginInformation();
+    	lnt=insert;
+    	lnt.loginInformation();
+        
+    }
+}
